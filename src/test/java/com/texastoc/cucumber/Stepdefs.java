@@ -1,4 +1,4 @@
-package com.texastoc;
+package com.texastoc.cucumber;
 
 import com.texastoc.model.season.Season;
 import com.texastoc.service.SeasonService;
@@ -6,13 +6,14 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 
-@SpringBootTest
-public class Stepdefs {
+@Ignore
+public class Stepdefs extends SpringBootBaseIntegrationTest {
 
     @Autowired
     SeasonService seasonService;
