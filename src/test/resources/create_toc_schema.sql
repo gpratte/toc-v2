@@ -1,0 +1,1 @@
+create table season (id INT auto_increment, startDate DATE, endDate DATE, numGames INT, numGamesPlayed INT, buyInCollected INT, rebuyAddOnCollected INT, tocCollected INT, tocPerGame INT, kittyPerGame INT, quarterlyTocPerGame INT, quarterlyNumPayouts INT, primary key(id))
