@@ -13,6 +13,8 @@ import java.util.List;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class QuarterlySeason {
 
     private int id;

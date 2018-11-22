@@ -1,8 +1,6 @@
 package com.texastoc.cucumber;
 
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -13,22 +11,23 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class SpringBootBaseIntegrationTest {
 
-    private static final Logger log = LoggerFactory.getLogger(SpringBootBaseIntegrationTest.class);
-
     private final String SERVER_URL = "http://localhost";
-    private final String THINGS_ENDPOINT = "/things";
-
-    private RestTemplate restTemplate;
+    private String V2_ENDPOINT;
 
     @LocalServerPort
-    protected int port;
+    private int port;
+
+    protected RestTemplate restTemplate;
 
     public SpringBootBaseIntegrationTest() {
         restTemplate = new RestTemplate();
     }
 
-    private String thingsEndpoint() {
-        return SERVER_URL + ":" + port + THINGS_ENDPOINT;
+    protected String endpoint() {
+        if (V2_ENDPOINT == null) {
+            V2_ENDPOINT = SERVER_URL + ":" + port + "/api/v2";
+        }
+        return V2_ENDPOINT;
     }
 
 }
