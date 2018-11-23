@@ -20,7 +20,6 @@ import java.util.List;
 public class Season {
 
     private int id;
-//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate start;
     private LocalDate end;
