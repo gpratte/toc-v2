@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 
 @RestController
@@ -24,8 +25,7 @@ public class SeasonRestController {
     }
 
     @PostMapping("/api/v2/seasons")
-    public Season createSeason(@RequestBody Season season) {
-        System.out.println("\n!!!\n!!! controller season input " + season);
+    public Season createSeason(@RequestBody @Valid Season season) {
         return seasonService.createSeason(season);
     }
 

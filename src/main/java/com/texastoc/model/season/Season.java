@@ -6,8 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,19 +20,26 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Season {
 
-    private int id;
+    private Integer id;
+    @NotNull(message = "start date is required")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate start;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate end;
-    private int numGames;
-    private int numGamesPlayed;
-    private int buyInCollected;
-    private int rebuyAddOnCollected;
-    private int tocCollected;
-    private int tocPerGame;
-    private int kittyPerGame;
-    private int quarterlyTocPerGame;
-    private int quarterlyNumPayouts;
+    private Integer numGames;
+    private Integer numGamesPlayed;
+    private Integer buyInCollected;
+    private Integer rebuyAddOnCollected;
+    private Integer tocCollected;
+    @NotNull
+    @Min(0)
+    private Integer tocPerGame;
+    @Min(0)
+    private Integer kittyPerGame;
+    @Min(0)
+    private Integer quarterlyTocPerGame;
+    @Min(0)
+    private Integer quarterlyNumPayouts;
     private List<SeasonPlayer> players;
     private List<SeasonPayout> payouts;
     private List<QuarterlySeason> quarterlySeasons;

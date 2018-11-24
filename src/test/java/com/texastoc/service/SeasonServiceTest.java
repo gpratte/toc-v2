@@ -80,8 +80,8 @@ public class SeasonServiceTest {
             Assert.assertTrue(qSeason.getId() > 0);
             Assert.assertEquals(i + 1, qSeason.getQuarter());
 
-            Assert.assertEquals(expected.getQuarterlyTocPerGame(), qSeason.getTocPerGame());
-            Assert.assertEquals(expected.getQuarterlyNumPayouts(), qSeason.getNumPayouts());
+            Assert.assertEquals((int)expected.getQuarterlyTocPerGame(), (int)qSeason.getTocPerGame());
+            Assert.assertEquals((int)expected.getQuarterlyNumPayouts(), (int)qSeason.getNumPayouts());
 
             Assert.assertTrue(qSeason.getTocCollected() == 0);
 
