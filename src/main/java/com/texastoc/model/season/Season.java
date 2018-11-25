@@ -31,14 +31,17 @@ public class Season {
     private Integer buyInCollected;
     private Integer rebuyAddOnCollected;
     private Integer tocCollected;
-    @NotNull
+    @NotNull(message = "toc per game is required")
     @Min(0)
     private Integer tocPerGame;
+    @NotNull(message = "kitty per game is required")
     @Min(0)
     private Integer kittyPerGame;
+    @NotNull(message = "quarterly toc per game is required")
     @Min(0)
     private Integer quarterlyTocPerGame;
-    @Min(0)
+    @NotNull(message = "quarterly number of payouts is required")
+    @Min(1)
     private Integer quarterlyNumPayouts;
     private List<SeasonPlayer> players;
     private List<SeasonPayout> payouts;

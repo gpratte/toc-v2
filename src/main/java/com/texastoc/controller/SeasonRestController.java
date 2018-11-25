@@ -6,6 +6,7 @@ import com.texastoc.model.season.SeasonPayout;
 import com.texastoc.model.season.SeasonPlayer;
 import com.texastoc.service.SeasonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +29,14 @@ public class SeasonRestController {
     public Season createSeason(@RequestBody @Valid Season season) {
         return seasonService.createSeason(season);
     }
+
+//    @PostMapping("/api/v2/seasons")
+//    public Season createSeason(@RequestBody @Valid Season season, BindingResult result) {
+//        if (result.hasErrors()) {
+//            System.out.println("!!! result " + result);
+//        }
+//        return seasonService.createSeason(season);
+//    }
 
     @GetMapping("/api/v2/seasons/current")
     public Season getCurrentSeason() {
