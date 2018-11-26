@@ -2,6 +2,7 @@ package com.texastoc.service;
 
 import com.texastoc.model.season.QuarterlySeason;
 import com.texastoc.model.season.Season;
+import com.texastoc.repository.QuarterlySeasonRepository;
 import com.texastoc.repository.SeasonRepository;
 import org.junit.Assert;
 import org.junit.Before;
@@ -27,9 +28,12 @@ public class SeasonServiceTest {
     @MockBean
     private SeasonRepository seasonRepository;
 
+    @MockBean
+    private QuarterlySeasonRepository qSeasonRepository;
+
     @Before
     public void before() {
-        service = new SeasonService(seasonRepository);
+        service = new SeasonService(seasonRepository, qSeasonRepository);
     }
 
     @Test
@@ -48,6 +52,7 @@ public class SeasonServiceTest {
         LocalDate expectedEnd = LocalDate.now().plusYears(1).minusDays(1);
 
         Mockito.when(seasonRepository.save( (Season)notNull() )).thenReturn(1);
+        Mockito.when(qSeasonRepository.save( (QuarterlySeason)notNull() )).thenReturn(1);
 
         // Act
         Season actual = service.createSeason(expected);
@@ -77,8 +82,8 @@ public class SeasonServiceTest {
 
         for (int i = 0; i < 4; ++i) {
             QuarterlySeason qSeason = actual.getQuarterlySeasons().get(i);
-//            Assert.assertTrue(qSeason.getId() > 0);
-            Assert.assertEquals(i + 1, qSeason.getQuarter());
+            Assert.assertTrue(qSeason.getId() > 0);
+            Assert.assertEquals((int)i + 1, (int)qSeason.getQuarter());
 
             Assert.assertEquals((int)expected.getQuarterlyTocPerGame(), (int)qSeason.getTocPerGame());
             Assert.assertEquals((int)expected.getQuarterlyNumPayouts(), (int)qSeason.getNumPayouts());
