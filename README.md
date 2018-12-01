@@ -25,5 +25,5 @@ JdbcTemplate based SeasonRepository. Use the @MockBean for the SeasonServiceTest
 Added cucumber BDD test. These tests bring up the server and use Spring's RestTempate to call the endpoint to create a season. Also uses an embedded H2 database. Uses a command line runner to create the season table.
 
 ## branch 05-tdd-create-season
-Implement the season GET using TDD.
+Implement the GET method on the season service using TDD.
 
