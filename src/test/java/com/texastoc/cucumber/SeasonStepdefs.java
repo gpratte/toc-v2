@@ -185,7 +185,7 @@ public class SeasonStepdefs extends SpringBootBaseIntegrationTest {
     @And("^the season is retrieved$")
     public void the_season_is_retrieved() throws Exception {
         System.out.println("!!! before calling endpoint " + seasonCreated.getId());
-        seasonRetrieved = restTemplate.getForObject(endpoint() + "/seasons/1", Season.class);
+        seasonRetrieved = restTemplate.getForObject(endpoint() + "/seasons/" + seasonCreated.getId(), Season.class);
     }
 
     @Then("^the season should have four quaters$")

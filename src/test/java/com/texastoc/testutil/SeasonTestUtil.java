@@ -34,7 +34,7 @@ public class SeasonTestUtil {
         for (int i = 0; i < 4; ++i) {
             QuarterlySeason qSeason = actual.getQuarterlySeasons().get(i);
             Assert.assertTrue(qSeason.getId() > 0);
-            Assert.assertEquals((int) i + 1, (int) qSeason.getQuarter());
+            Assert.assertEquals((int) i + 1, (int) qSeason.getQuarter().getValue());
 
             Assert.assertEquals((int) expected.getQuarterlyTocPerGame(), (int) qSeason.getTocPerGame());
             Assert.assertEquals((int) expected.getQuarterlyNumPayouts(), (int) qSeason.getNumPayouts());

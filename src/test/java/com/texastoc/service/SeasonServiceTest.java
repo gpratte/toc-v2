@@ -1,6 +1,7 @@
 package com.texastoc.service;
 
 import com.texastoc.model.game.Game;
+import com.texastoc.model.season.Quarter;
 import com.texastoc.model.season.QuarterlySeason;
 import com.texastoc.model.season.Season;
 import com.texastoc.repository.GameRepository;
@@ -83,7 +84,7 @@ public class SeasonServiceTest {
             // @formatter:off
             QuarterlySeason qSeason = QuarterlySeason.builder()
             .id(i)
-            .quarter(i)
+            .quarter(Quarter.fromInt(i))
             .build();
             // @formatter:on
             qSeasons.add(qSeason);

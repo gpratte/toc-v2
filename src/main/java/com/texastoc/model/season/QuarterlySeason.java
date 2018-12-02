@@ -29,7 +29,7 @@ public class QuarterlySeason {
     private Boolean finalized;
     @NotNull(message = "quarter is required")
     @Min(1)
-    private Integer quarter;
+    private Quarter quarter;
     private Integer numGames;
     private Integer numGamesPlayed;
     private Integer tocCollected;
