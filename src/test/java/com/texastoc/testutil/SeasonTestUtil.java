@@ -21,7 +21,8 @@ public class SeasonTestUtil {
         Assert.assertTrue(actual.getNumGamesPlayed() == 0);
 
         Assert.assertEquals(expected.getStart(), actual.getStart());
-        Assert.assertEquals(expected.getEnd(), actual.getEnd());
+
+        Assert.assertEquals(actual.getStart().plusYears(1).minusDays(1), actual.getEnd());
 
         Assert.assertTrue(actual.getNumGames() == 52 || actual.getNumGames() == 53);
 

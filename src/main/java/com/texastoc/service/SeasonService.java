@@ -66,6 +66,7 @@ public class SeasonService {
                 .quarter(i)
                 .start(qStart)
                 .end(qEnd)
+                .finalized(false)
                 .numGames(qNumThursdays)
                 .numGamesPlayed(0)
                 .tocCollected(0)
@@ -79,7 +80,8 @@ public class SeasonService {
         Season newSeason = Season.builder()
             .start(start)
             .end(end)
-            .numGames(0)
+            .finalized(false)
+            .numGames(numThursdays)
             .numGamesPlayed(0)
             .buyInCollected(0)
             .rebuyAddOnCollected(0)
@@ -88,7 +90,6 @@ public class SeasonService {
             .kittyPerGame(season.getKittyPerGame())
             .quarterlyTocPerGame(season.getQuarterlyTocPerGame())
             .quarterlyNumPayouts(season.getQuarterlyNumPayouts())
-            .numGames(numThursdays)
             .quarterlySeasons(qSeasons)
             .build();
 

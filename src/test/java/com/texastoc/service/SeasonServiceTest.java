@@ -64,9 +64,6 @@ public class SeasonServiceTest {
         // Act
         Season actual = service.createSeason(expected);
 
-        // Arrange a bit more. End date should the day before the start date next year
-        expected.setEnd(LocalDate.now().plusYears(1).minusDays(1));
-
         // Assert
         SeasonTestUtil.assertCreated(expected, actual);
     }

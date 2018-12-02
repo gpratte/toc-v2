@@ -28,6 +28,7 @@ public class RestControllerAdvise extends ResponseEntityExceptionHandler {
     @ExceptionHandler(value = { RuntimeException.class })
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
         System.out.println("!!! " + ex.getClass().getName());
+        System.out.println("!!! " + ex.getMessage());
         String bodyOfResponse = "This should be application specific";
         return handleExceptionInternal(ex, bodyOfResponse,
             new HttpHeaders(), HttpStatus.CONFLICT, request);
